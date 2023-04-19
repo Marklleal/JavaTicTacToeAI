@@ -44,26 +44,17 @@ public class TicTacToe {
     }
 
     public boolean checkForWin() {
-        // Verifica linhas, colunas e diagonais
-        return (checkRows() || checkColumns() || checkDiagonals());
+        // Checks rows, columns and diagonals
+        return (checkRowsAndColumns() || checkDiagonals());
     }
-
-    private boolean checkRows() {
-        for (int i = 0; i < SIZE; i++) {
-            if (checkRowCol(board[i][0], board[i][1], board[i][2])) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean checkColumns() {
-        for (int i = 0; i < SIZE; i++) {
-            if (checkRowCol(board[0][i], board[1][i], board[2][i])) {
-                return true;
-            }
-        }
-        return false;
+    
+    private boolean checkRowsAndColumns() {
+    	for (int i = 0; i < SIZE; i++) {
+    		if (checkRowCol(board[i][0], board[i][1], board[i][2]) || checkRowCol(board[0][i], board[1][i], board[2][i])) {
+    			return true;
+    		}
+    	}
+    	return false;
     }
 
     private boolean checkDiagonals() {
