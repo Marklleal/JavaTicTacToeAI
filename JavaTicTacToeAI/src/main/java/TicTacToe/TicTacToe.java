@@ -11,6 +11,11 @@ public class TicTacToe {
         currentPlayer = 'X';
         initializeBoard();
     }
+    
+    public final void resetGame() {
+    	initializeBoard();
+    	currentPlayer = 'X';
+    }
 
     public final void initializeBoard() {
         for (int i = 0; i < SIZE; i++) {
